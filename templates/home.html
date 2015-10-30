@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Django practice - Home</title>
+    </head>
+    <body>
+        <h1>Comments</h1>
+        {% for comment in comments %}
+            <p>
+                Name: {{ comment.name }}<br />
+                Date: {{ comment.date }}<br />
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ comment.content }}<br />
+            </p>
+        {% endfor %}
+    </body>
+</html>
