@@ -4,12 +4,23 @@
     </head>
     <body>
         <h1>Comments</h1>
+        <form action = "." method = "POST">
+            {% csrf_token %}
+            <style>
+                th {
+                    text-align: right;
+                    vertical-align: top;
+                }
+            </style>
+            <table>{{ form }}</table>
+            <input type = "submit" value = "Add comment" />
+        </form>
         {% for comment in comments %}
             <p>
                 Name: {{ comment.name }}<br />
                 Date: {{ comment.date }}<br />
                 <br />
-                {{ comment.content }}<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ comment.content }}<br />
             </p>
         {% endfor %}
     </body>

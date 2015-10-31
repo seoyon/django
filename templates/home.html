@@ -4,6 +4,16 @@
     </head>
     <body>
         <h1>Comments</h1>
+        <form action = "." method = "POST">
+            <style>
+                th {
+                    text-align: right;
+                    vertical-align: top;
+                }
+            </style>
+            <table>{{ form }}</table>
+            <input type = "submit" value = "Add comment" />
+        </form>
         {% for comment in comments %}
             <p>
                 Name: {{ comment.name }}<br />
