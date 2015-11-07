@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.csrf import csrf_protect
 
 from app.models import *
 from app.forms import *
@@ -9,6 +10,7 @@ from app.forms import *
 def hello_world(request):
     return render(request, 'hello_world.html')
 
+@csrf_protect
 def main_page(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)

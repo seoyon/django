@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.csrf import csrf_protect
 
 from app.models import *
 from app.forms import *
@@ -14,8 +15,8 @@ def main_page(request):
         form = CommentForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
-            comment = form.cleaned_data['content']
-            Comment(name = name, comment = comment).save()
+            content = form.cleaned_data['content']
+            Comment(name = name, content = content).save()
             return HttpResponseRedirect('/')
     else:
         form = CommentForm()
